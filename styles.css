@@ -513,6 +513,22 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.product-tile {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 10px;
+}
+
+.product-tile__buy {
+  width: 100%;
+  text-align: center;
+  transform: rotate(-1deg);
+}
+
+.product-tile__buy:hover {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
 .card {
   background: var(--paper);
   border: var(--stroke);
@@ -612,12 +628,6 @@ a {
   flex-wrap: wrap;
 }
 
-.card__buy {
-  margin-top: 12px;
-  width: 100%;
-  text-align: center;
-}
-
 .buy-btn {
   display: inline-flex;
   align-items: center;
@@ -702,50 +712,29 @@ a {
 }
 
 .badge {
-  background: #ffd6f1;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.9), transparent 42%),
+    linear-gradient(160deg, #ffd9f3, #f8c7ef 55%, #f3b9ea);
   border: var(--stroke);
-  box-shadow: var(--shadow);
-  border-radius: 26px;
-  padding: 16px 18px;
+  box-shadow: 0 14px 0 rgba(0, 0, 0, 0.13), 0 24px 34px rgba(0, 0, 0, 0.2);
+  border-radius: 24px;
+  padding: 18px 20px;
   position: relative;
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
   width: min(380px, 100%);
 }
 
 .badge--burst {
-  clip-path: polygon(
-    10% 4%,
-    18% 10%,
-    30% 4%,
-    40% 12%,
-    52% 5%,
-    62% 12%,
-    74% 4%,
-    82% 12%,
-    92% 6%,
-    96% 16%,
-    92% 26%,
-    98% 36%,
-    92% 46%,
-    98% 56%,
-    92% 66%,
-    98% 76%,
-    90% 86%,
-    78% 92%,
-    68% 98%,
-    58% 90%,
-    46% 98%,
-    36% 90%,
-    24% 98%,
-    14% 90%,
-    6% 80%,
-    12% 70%,
-    4% 58%,
-    10% 48%,
-    4% 36%,
-    10% 26%,
-    4% 14%
-  );
+  clip-path: none;
+}
+
+.badge::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  pointer-events: none;
 }
 
 .badge__cap {
@@ -760,26 +749,29 @@ a {
 }
 
 .badge__price {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   align-items: baseline;
   gap: 10px;
 }
 
 .badge__num {
-  font-size: clamp(40px, 4vw, 62px);
+  font-size: clamp(42px, 4.2vw, 64px);
   font-weight: 1000;
-  letter-spacing: -0.7px;
+  letter-spacing: -1px;
+  line-height: 0.95;
 }
 
 .badge__unit {
   font-weight: 900;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
 .badge__note {
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: 750;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .combo__mini {
