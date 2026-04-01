@@ -4,7 +4,7 @@ const STORAGE_KEY = "cloudery_reviews_v1";
 const REACTION_STORAGE_KEY = "cloudery_reaction_counts_v1";
 // Paste your deployed Google Apps Script Web App URL here.
 const GOOGLE_SCRIPT_WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbz_PmnOM6fDgPsx0EjqvB1mhZD7e9spILLSnWETwm4yenRxCmOFmonhu946YKRAyouO/exec";
+  "https://script.google.com/macros/s/AKfycbwy7XzcYO_vAoeHfsNQ_5ax9ug_es98Z6ikeaM7gGC1jiArmc2qWneRicZLcMYYV5xN/exec";
 
 function qs(sel, root = document) {
   return root.querySelector(sel);
