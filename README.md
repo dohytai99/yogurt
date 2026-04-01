@@ -11,6 +11,7 @@ function doPost(e) {
 
   sheet.appendRow([
     new Date(),
+    data.customer_name || "",
     data.q1_age || "",
     data.q2_freq || "",
     data.q3_focus || "",
