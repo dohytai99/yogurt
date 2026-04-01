@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const STORAGE_KEY = "cloudery_reviews_v1";
-const WOW_STORAGE_KEY = "cloudery_wow_count_v1";
+const LIKE_STORAGE_KEY = "cloudery_like_count_v1";
 
 function qs(sel, root = document) {
   return root.querySelector(sel);
@@ -281,8 +281,8 @@ function setupTiltHover() {
 
 function setupConfetti() {
   const canvas = qs("#confetti");
-  const btn = qs("#btnConfetti");
-  const wowValue = qs("#wowCountValue");
+  const btn = qs("#btnLike");
+  const likeValue = qs("#likeCountValue");
   if (!canvas || !btn) return;
 
   const ctx = canvas.getContext("2d");
@@ -295,19 +295,19 @@ function setupConfetti() {
   let raf = 0;
   let endAt = 0;
 
-  function readWowCount() {
-    const raw = localStorage.getItem(WOW_STORAGE_KEY);
+  function readLikeCount() {
+    const raw = localStorage.getItem(LIKE_STORAGE_KEY);
     const num = Number(raw);
     return Number.isFinite(num) && num >= 0 ? Math.floor(num) : 0;
   }
 
-  function writeWowCount(count) {
-    localStorage.setItem(WOW_STORAGE_KEY, String(count));
+  function writeLikeCount(count) {
+    localStorage.setItem(LIKE_STORAGE_KEY, String(count));
   }
 
-  function renderWowCount(count) {
-    if (!wowValue) return;
-    wowValue.textContent = count.toLocaleString("vi-VN");
+  function renderLikeCount(count) {
+    if (!likeValue) return;
+    likeValue.textContent = count.toLocaleString("vi-VN");
   }
 
   function resize() {
@@ -369,12 +369,12 @@ function setupConfetti() {
   const ro = new ResizeObserver(resize);
   ro.observe(canvas);
   resize();
-  renderWowCount(readWowCount());
+  renderLikeCount(readLikeCount());
 
   btn.addEventListener("click", () => {
-    const nextCount = readWowCount() + 1;
-    writeWowCount(nextCount);
-    renderWowCount(nextCount);
+    const nextCount = readLikeCount() + 1;
+    writeLikeCount(nextCount);
+    renderLikeCount(nextCount);
 
     cancelAnimationFrame(raf);
     resize();
