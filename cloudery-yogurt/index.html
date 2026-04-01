@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudery Yogurt — Sữa Chua Trứng Gà</title>
+    <meta
+      name="description"
+      content="Landing page playful, sticker-like for Cloudery Yogurt — Sữa Chua Trứng Gà."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Nhảy tới nội dung</a>
+
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <div class="brand">
+          <span class="brand__mark" aria-hidden="true">☁️</span>
+          <span class="brand__name">Cloudery Yogurt</span>
+        </div>
+        <nav class="nav">
+          <a href="#product">Vị</a>
+          <a href="#combo">Combo</a>
+          <a href="#story">Câu chuyện</a>
+          <a href="#feedback">Feedback</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" aria-label="Hero">
+        <div class="hero__bg" aria-hidden="true">
+          <div class="cloud cloud--1 float"></div>
+          <div class="cloud cloud--2 float-slow"></div>
+          <div class="cloud cloud--3 float"></div>
+          <div class="sparkle sparkle--1"></div>
+          <div class="sparkle sparkle--2"></div>
+          <div class="sparkle sparkle--3"></div>
+        </div>
+
+        <div class="container hero__grid">
+          <div class="hero__copy reveal">
+            <p class="pill">
+              <span aria-hidden="true">🥚</span> Cloudery Yogurt <span aria-hidden="true">☁️</span>
+              SỮA CHUA TRỨNG GÀ
+            </p>
+            <h1 class="hero__title">Sữa Chua Trứng Gà</h1>
+            <p class="hero__sub">
+              Gói trọn tầng mây vào hũ sữa chua.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#combo">Combo 139.000 VNĐ</a>
+              <a class="btn btn--ghost" href="#story">Khám phá Menu bên trong nha!</a>
+            </div>
+            <div class="hero__mini">
+              <span class="mini-badge">Béo</span>
+              <span class="mini-badge">Mịn</span>
+              <span class="mini-badge">Mê</span>
+            </div>
+          </div>
+
+          <div class="hero__stage reveal">
+            <div class="sticker egg-sticker bounce" style="--r:-8deg; --x:-10px; --y:-12px">
+              <span class="sticker__icon" aria-hidden="true">🥚</span>
+              <span class="sticker__text">Trứng gà</span>
+            </div>
+            <div class="sticker fruit-sticker bounce" style="--r:10deg; --x:14px; --y:10px">
+              <span class="sticker__icon" aria-hidden="true">🍓</span>
+              <span class="sticker__text">Trái cây</span>
+            </div>
+            <div class="sticker cloud-sticker bounce" style="--r:4deg; --x:-16px; --y:18px">
+              <span class="sticker__icon" aria-hidden="true">☁️</span>
+              <span class="sticker__text">Tầng mây</span>
+            </div>
+
+            <figure class="product product--tilt product--trio" aria-label="3 hũ sữa chua Cloudery Yogurt">
+              <img
+                src="./assets/product-la-dua.jpg"
+                alt="Sữa chua lá dứa Cloudery Yogurt"
+                class="product__img product__img--left"
+                loading="eager"
+                decoding="async"
+              />
+              <img
+                src="./assets/product-nguyen-ban.jpg"
+                alt="Sữa chua trứng gà Cloudery Yogurt"
+                class="product__img product__img--center"
+                loading="eager"
+                decoding="async"
+              />
+              <img
+                src="./assets/product-trai-cay.jpg"
+                alt="Sữa chua trái cây Cloudery Yogurt"
+                class="product__img product__img--right"
+                loading="eager"
+                decoding="async"
+              />
+              <figcaption class="sr-only">Bộ 3 hũ sữa chua Cloudery Yogurt</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="product" class="section">
+        <div class="container">
+          <header class="section__head reveal">
+            <h2 class="section__title">Sữa Chua Trứng Gà - NEW!</h2>
+            <p class="section__sub">Béo, mịn, và mê!</p>
+          </header>
+
+          <div class="grid grid--3">
+            <article class="card flavor-card reveal" data-tilt>
+              <div class="flavor-card__imgwrap">
+                <img
+                  src="./assets/product-nguyen-ban.jpg"
+                  alt="Sữa chua trứng gà"
+                  class="flavor-card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card__top">
+                <span class="tag tag--blue">Nguyên vị</span>
+                <span class="wiggle" aria-hidden="true">🥛</span>
+              </div>
+              <h3 class="card__title">Sữa chua trứng gà</h3>
+              <p class="card__meta">
+                <span>28.000 VNĐ</span>
+                <span>110kcal/100g</span>
+              </p>
+              <p class="card__desc">
+                Lòng đỏ xử lý nhiệt chuẩn xác, lên men thủ công, thơm béo cân bằng.
+              </p>
+              <div class="card__stickers">
+                <span class="chip bounce">mịn</span>
+                <span class="chip bounce" style="animation-delay: 140ms">béo</span>
+              </div>
+              <a
+                class="btn btn--primary card__buy buy-btn"
+                href="https://m.me/61576436301812?text=T%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20h%C3%A0ng%20S%E1%BB%AFa%20chua%20tr%E1%BB%A9ng%20g%C3%A0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span aria-hidden="true">🛒</span>
+                <span>Mua ngay</span>
+              </a>
+            </article>
+
+            <article class="card flavor-card reveal" data-tilt>
+              <div class="flavor-card__imgwrap">
+                <img
+                  src="./assets/product-trai-cay.jpg"
+                  alt="Sữa chua trái cây"
+                  class="flavor-card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card__top">
+                <span class="tag tag--green">Fresh</span>
+                <span class="wiggle" aria-hidden="true">🍍</span>
+              </div>
+              <h3 class="card__title">Sữa chua trái cây trứng gà</h3>
+              <p class="card__meta">
+                <span>32.000 VNĐ</span>
+                <span>110kcal/100g</span>
+              </p>
+              <p class="card__desc">
+                Sự kết hợp bùng nổ giữa nền sữa chua trứng béo ngậy và vị chua ngọt thanh mát
+                của trái cây theo mùa.
+              </p>
+              <div class="card__stickers">
+                <span class="chip bounce">🍓</span>
+                <span class="chip bounce" style="animation-delay: 160ms">🥭</span>
+                <span class="chip bounce" style="animation-delay: 220ms">🍍</span>
+              </div>
+              <a
+                class="btn btn--primary card__buy buy-btn"
+                href="https://m.me/61576436301812?text=T%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20h%C3%A0ng%20S%E1%BB%AFa%20chua%20tr%C3%A1i%20c%C3%A2y%20tr%E1%BB%A9ng%20g%C3%A0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span aria-hidden="true">🛒</span>
+                <span>Mua ngay</span>
+              </a>
+            </article>
+
+            <article class="card flavor-card reveal" data-tilt>
+              <div class="flavor-card__imgwrap">
+                <img
+                  src="./assets/product-la-dua.jpg"
+                  alt="Sữa chua lá dứa"
+                  class="flavor-card__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="card__top">
+                <span class="tag tag--yellow">Thơm</span>
+                <span class="wiggle" aria-hidden="true">🌿</span>
+              </div>
+              <h3 class="card__title">Sữa chua lá dứa</h3>
+              <p class="card__meta">
+                <span>32.000 VNĐ</span>
+                <span>110kcal/100g</span>
+              </p>
+              <p class="card__desc">
+                Ủ cùng nước cốt lá dứa tươi, lọc chậm 36 giờ tỉ mỉ, vị thanh nhẹ và hương thơm
+                như hơi thở vườn.
+              </p>
+              <div class="card__stickers">
+                <span class="chip bounce">fresh</span>
+                <span class="chip bounce" style="animation-delay: 120ms">green</span>
+              </div>
+              <a
+                class="btn btn--primary card__buy buy-btn"
+                href="https://m.me/61576436301812?text=T%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20h%C3%A0ng%20S%E1%BB%AFa%20chua%20l%C3%A1%20d%E1%BB%A9a"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span aria-hidden="true">🛒</span>
+                <span>Mua ngay</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMBO -->
+      <section id="combo" class="section section--combo">
+        <div class="container combo">
+          <div class="combo__left reveal">
+            <h2 class="section__title">COMBO "TẦNG MÂY" (3 hũ mix 3 vị)</h2>
+            <p class="section__sub">
+              Quét mã để nhận ưu đãi 10% và đặt hàng nhanh.
+            </p>
+            <ul class="list">
+              <li>
+                <span class="bullet" aria-hidden="true">☁️</span>
+                Facebook:
+                <a href="https://www.facebook.com/profile.php?id=61576436301812&mibextid=wwXIfr&rdid=eDjpEuno18skeC4g&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Am8ADN1qm%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer">Cloudery Yogurt</a>
+              </li>
+              <li><span class="bullet" aria-hidden="true">📞</span> Hotline/Zalo: 088.3456.889</li>
+              <li><span class="bullet" aria-hidden="true">📍</span> 279 Nguyễn Tri Phương, P. Diên Hồng, TP. HCM</li>
+            </ul>
+            <div class="combo__actions">
+              <a
+                class="btn btn--primary buy-btn"
+                href="https://m.me/61576436301812?text=T%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20combo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span aria-hidden="true">🛒</span>
+                <span>Mua combo</span>
+              </a>
+              <button class="btn btn--primary" id="btnScrollForm" type="button">
+                Để lại review
+              </button>
+              <button class="btn btn--ghost" id="btnConfetti" type="button">
+                Bấm thử “wow”
+              </button>
+            </div>
+            <div class="wow-counter" id="wowCounter" aria-live="polite">
+              <span class="wow-counter__label">Đã có lượt wow:</span>
+              <strong class="wow-counter__value" id="wowCountValue">0</strong>
+            </div>
+          </div>
+
+          <div class="combo__right reveal">
+            <div class="badge badge--burst pulse" role="group" aria-label="Combo price">
+              <div class="badge__cap">COMBO</div>
+              <div class="badge__price">
+                <span class="badge__num">139.000</span>
+                <span class="badge__unit">VND</span>
+              </div>
+              <div class="badge__note">Combo 3 hũ mix 3 vị</div>
+            </div>
+            <div class="combo__mini">
+              <div class="mini-card float">
+                <div class="mini-card__icon mini-card__icon--ig" aria-hidden="true"></div>
+                <div class="mini-card__text">
+                  <strong>Instagram</strong>
+                  <span><a href="https://www.instagram.com/cloudery.yogurt" target="_blank" rel="noopener noreferrer">@cloudery.yogurt</a></span>
+                </div>
+              </div>
+              <div class="mini-card float-slow">
+                <div class="mini-card__icon mini-card__icon--tt" aria-hidden="true"></div>
+                <div class="mini-card__text">
+                  <strong>TikTok</strong>
+                  <span><a href="https://www.tiktok.com/@cloudery.yogurt" target="_blank" rel="noopener noreferrer">@cloudery.yogurt</a></span>
+                </div>
+              </div>
+              <div class="mini-card float">
+                <div class="mini-card__icon mini-card__icon--fb" aria-hidden="true"></div>
+                <div class="mini-card__text">
+                  <strong>Facebook</strong>
+                  <span><a href="https://www.facebook.com/profile.php?id=61576436301812&mibextid=wwXIfr&rdid=eDjpEuno18skeC4g&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Am8ADN1qm%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer">Cloudery Yogurt</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+      </section>
+
+      <!-- STORY -->
+      <section id="story" class="section section--story" aria-label="Story section">
+        <div class="container story reveal">
+          <h2 class="section__title">Câu chuyện “trên mây”</h2>
+          <div class="story__paper">
+            <div class="story__clouds" aria-hidden="true">
+              <div class="cloud cloud--paper-1 float"></div>
+              <div class="cloud cloud--paper-2 float-slow"></div>
+            </div>
+            <p class="story__line" data-story-line>
+              “Gói trọn tầng mây vào hũ sữa chua”
+            </p>
+            <p class="story__line" data-story-line>
+              Tại Cloudery, chúng mình mang đến một trải nghiệm bay bổng từ những quả trứng gà tươi tuyển chọn và công thức ủ thủ công độc bản.
+            </p>
+            <p class="story__line" data-story-line>
+              Mỗi hũ sữa chua ra đời với độ béo ngậy khó cưỡng và kết cấu mềm mịn tựa như mây.
+            </p>
+            <p class="story__line" data-story-line>
+              Bên cạnh vị Trứng gà nguyên bản, bạn đừng bỏ lỡ dòng Lá dứa được lọc chậm tỉ mỉ suốt 36 giờ, hay đổi vị cùng Trái cây theo mùa vụ đầy tươi mát.
+            </p>
+            <p class="story__line" data-story-line>
+              Tất cả đều được chắt lọc tinh khiết nhất để nâng niu vị giác của bạn.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section id="feedback" class="section">
+        <div class="container">
+          <header class="section__head reveal">
+            <h2 class="section__title">Test nhanh từ hội “ăn là mê”</h2>
+            <p class="section__sub">
+              Counter chạy số + review cards kiểu sticker.
+            </p>
+          </header>
+
+          <div class="stats">
+            <div class="stat reveal" data-counter="8">
+              <div class="stat__num"><span class="counter">0</span><span class="stat__unit">/10</span></div>
+              <div class="stat__label">thích mịn</div>
+            </div>
+            <div class="stat reveal" data-counter="7">
+              <div class="stat__num"><span class="counter">0</span><span class="stat__unit">/10</span></div>
+              <div class="stat__label">thích vị</div>
+            </div>
+            <div class="stat reveal" data-counter="6">
+              <div class="stat__num"><span class="counter">0</span><span class="stat__unit">/10</span></div>
+              <div class="stat__label">thấy mới lạ</div>
+            </div>
+          </div>
+
+          <div class="reviews">
+            <div class="reviews__head reveal">
+              <h3 class="reviews__title">Review đáng yêu</h3>
+              <p class="reviews__sub">Bạn thả một chiếc review xuống đây nha.</p>
+            </div>
+
+            <div id="reviewsList" class="reviews__grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section id="form" class="section section--form" aria-label="Feedback form">
+        <div class="container form-wrap reveal">
+          <h2 class="section__title">Bạn chấm sao giúp tụi mình nhé</h2>
+          <form id="reviewForm" class="form">
+            <label class="field">
+              <span class="field__label">Tên bạn</span>
+              <input
+                class="input"
+                name="name"
+                type="text"
+                placeholder="Ví dụ: Mây Mây"
+                required
+                maxlength="40"
+                autocomplete="name"
+              />
+            </label>
+
+            <div class="field">
+              <span class="field__label">Chấm sao</span>
+              <div class="stars" role="radiogroup" aria-label="Star rating">
+                <input class="sr-only" type="radio" name="rating" value="5" id="r5" checked />
+                <label class="star" for="r5" title="5 sao">★</label>
+                <input class="sr-only" type="radio" name="rating" value="4" id="r4" />
+                <label class="star" for="r4" title="4 sao">★</label>
+                <input class="sr-only" type="radio" name="rating" value="3" id="r3" />
+                <label class="star" for="r3" title="3 sao">★</label>
+                <input class="sr-only" type="radio" name="rating" value="2" id="r2" />
+                <label class="star" for="r2" title="2 sao">★</label>
+                <input class="sr-only" type="radio" name="rating" value="1" id="r1" />
+                <label class="star" for="r1" title="1 sao">★</label>
+              </div>
+              <div class="stars__hint" id="ratingHint">5 sao nha!</div>
+            </div>
+
+            <label class="field">
+              <span class="field__label">Bình luận</span>
+              <textarea
+                class="textarea"
+                name="comment"
+                rows="4"
+                placeholder="Bạn thấy mịn không? vị thế nào? mới lạ không?"
+                required
+                maxlength="280"
+              ></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">Gửi review</button>
+              <button class="btn btn--ghost" type="button" id="btnClearReviews">
+                Xoá reviews đã lưu
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true">☁️</span>
+            <span class="brand__name">Cloudery Yogurt</span>
+          </div>
+          <p class="footer__note">Sticker-print vibes, built with HTML/CSS/JS.</p>
+        </div>
+        <div class="footer__links">
+          <a href="#main">Lên đầu trang</a>
+          <a href="#form">Gửi review</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.cursor/
+
+# Keep repo focused on the site folder
+z*.jpg
+
