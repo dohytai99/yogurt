@@ -11,7 +11,7 @@ function qs(sel, root = document) {
 }
 
 function qsa(sel, root = document) {
-  return [...root.querySelectorAll(sel)];
+  return Array.prototype.slice.call(root.querySelectorAll(sel));
 }
 
 function clamp(n, min, max) {
@@ -26,11 +26,18 @@ function formatTime(ts) {
 
 function escapeHtml(str) {
   return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function createId() {
+  if (window.crypto && typeof window.crypto.randomUUID === "function") {
+    return window.crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
 function loadReviews() {
@@ -42,7 +49,7 @@ function loadReviews() {
     return parsed
       .filter((r) => r && typeof r === "object")
       .map((r) => ({
-        id: String(r.id ?? crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`),
+        id: String((r && r.id) || createId()),
         name: String(r.name ?? "Ẩn danh").slice(0, 40),
         rating: clamp(Number(r.rating ?? 5), 1, 5),
         comment: String(r.comment ?? "").slice(0, 280),
@@ -131,6 +138,10 @@ function prependReview(reviews, review) {
 
 function setupRevealOnScroll() {
   const els = qsa(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    for (const el of els) el.classList.add("is-in");
+    return;
+  }
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
@@ -147,6 +158,14 @@ function setupRevealOnScroll() {
 
 function setupCounters() {
   const stats = qsa(".stat[data-counter]");
+  if (!("IntersectionObserver" in window)) {
+    for (const stat of stats) {
+      const target = clamp(Number(stat.getAttribute("data-counter") || "0"), 0, 10);
+      const counterEl = qs(".counter", stat);
+      if (counterEl) counterEl.textContent = String(target);
+    }
+    return;
+  }
   const io = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
@@ -181,6 +200,10 @@ function setupStoryLines() {
   const story = qs("#story");
   const lines = qsa("[data-story-line]");
   if (!story || lines.length === 0) return;
+  if (!("IntersectionObserver" in window)) {
+    for (const line of lines) line.classList.add("is-shown");
+    return;
+  }
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -212,7 +235,7 @@ function setupRatingHint() {
 
   const update = () => {
     const checked = radios.find((r) => r.checked);
-    const val = clamp(Number(checked?.value ?? 5), 1, 5);
+    const val = clamp(Number((checked && checked.value) || 5), 1, 5);
     hint.textContent = `${val} sao — ${labels[val - 1]}`;
   };
 
@@ -233,8 +256,7 @@ function setupForm(reviews) {
 
     if (!name || !comment) return;
 
-    const id =
-      crypto.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    const id = createId();
     const review = { id, name: name.slice(0, 40), rating, comment: comment.slice(0, 280), ts: Date.now() };
     prependReview(reviews, review);
 
@@ -246,13 +268,15 @@ function setupForm(reviews) {
   });
 
   const btnClear = qs("#btnClearReviews");
-  btnClear?.addEventListener("click", () => {
+  if (btnClear) {
+    btnClear.addEventListener("click", () => {
     localStorage.removeItem(STORAGE_KEY);
     reviews.splice(0, reviews.length, ...defaultReviews());
     saveReviews(reviews);
     mountReviews(reviews);
     setupRevealOnScroll();
-  });
+    });
+  }
 }
 
 function setupSurveyForm() {
@@ -300,8 +324,15 @@ function setupSurveyForm() {
 }
 
 function setupButtons() {
-  qs("#btnScrollForm")?.addEventListener("click", () => {
-    qs("#form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const btn = qs("#btnScrollForm");
+  const formSection = qs("#form");
+  if (!btn || !formSection) return;
+  btn.addEventListener("click", () => {
+    try {
+      formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch {
+      formSection.scrollIntoView();
+    }
   });
 }
 
@@ -355,7 +386,7 @@ function setupConfetti() {
   function normalizeCounts(raw) {
     const counts = {};
     for (const k of reactionKeys) {
-      const val = Number(raw?.[k] ?? 0);
+      const val = Number((raw && raw[k]) || 0);
       counts[k] = Number.isFinite(val) && val >= 0 ? Math.floor(val) : 0;
     }
     return counts;
@@ -438,13 +469,21 @@ function setupConfetti() {
     }
   }
 
-  const ro = new ResizeObserver(resize);
-  ro.observe(canvas);
+  if ("ResizeObserver" in window) {
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+  } else {
+    window.addEventListener("resize", resize);
+  }
   resize();
   renderReactionCounts(readReactionCounts());
 
   reactionBar.addEventListener("click", (event) => {
-    const btn = event.target.closest("[data-reaction]");
+    let node = event.target;
+    while (node && node !== reactionBar && !node.getAttribute("data-reaction")) {
+      node = node.parentElement;
+    }
+    const btn = node && node !== reactionBar ? node : null;
     if (!btn) return;
     const key = btn.getAttribute("data-reaction");
     if (!reactionKeys.includes(key)) return;
