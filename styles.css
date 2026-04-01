@@ -541,6 +541,18 @@ a {
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
+.product-tile:nth-child(1) .card {
+  background: linear-gradient(180deg, #fffef5, #fff4c9 92%);
+}
+
+.product-tile:nth-child(2) .card {
+  background: linear-gradient(180deg, #f1fcff, #dff4ff 92%);
+}
+
+.product-tile:nth-child(3) .card {
+  background: linear-gradient(180deg, #f4fff1, #e4f9da 92%);
+}
+
 .card:hover {
   transform: translateY(-4px) rotate(1.2deg) scale(1.02);
   box-shadow: 0 16px 0 rgba(0, 0, 0, 0.14), 0 26px 34px rgba(0, 0, 0, 0.2);
@@ -609,7 +621,7 @@ a {
   padding: 6px 10px;
   border-radius: 999px;
   border: 2px solid rgba(0, 0, 0, 0.16);
-  background: rgba(231, 247, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
   font-weight: 900;
   font-size: 14px;
   line-height: 1;
@@ -642,7 +654,7 @@ a {
   padding: 8px 12px;
   border-radius: 999px;
   border: 2px dashed rgba(0, 0, 0, 0.35);
-  background: #f7fbff;
+  background: #ffffff;
   font-weight: 900;
   transform: rotate(-2deg);
 }
@@ -781,7 +793,7 @@ a {
 }
 
 .mini-card {
-  background: var(--paper);
+  background: linear-gradient(180deg, #ffffff, #f2fbff);
   border: var(--stroke);
   border-radius: 18px;
   box-shadow: 0 12px 0 rgba(0, 0, 0, 0.12), 0 18px 28px rgba(0, 0, 0, 0.16);
@@ -790,6 +802,14 @@ a {
   gap: 10px;
   align-items: center;
   transform: rotate(1deg);
+}
+
+.combo__mini .mini-card:nth-child(2) {
+  background: linear-gradient(180deg, #ffffff, #effdff);
+}
+
+.combo__mini .mini-card:nth-child(3) {
+  background: linear-gradient(180deg, #ffffff, #eef4ff);
 }
 
 .mini-card__icon {
@@ -936,12 +956,20 @@ a {
 }
 
 .stat {
-  background: var(--paper);
+  background: linear-gradient(180deg, #ffffff, #f5fbff);
   border: var(--stroke);
   border-radius: var(--radius-sm);
   box-shadow: 0 12px 0 rgba(0, 0, 0, 0.12), 0 18px 26px rgba(0, 0, 0, 0.14);
   padding: 14px 14px 12px;
   transform: rotate(-1deg);
+}
+
+.stats .stat:nth-child(2) {
+  background: linear-gradient(180deg, #ffffff, #eefcff);
+}
+
+.stats .stat:nth-child(3) {
+  background: linear-gradient(180deg, #ffffff, #effff3);
 }
 
 .stat__num {
@@ -990,7 +1018,7 @@ a {
 }
 
 .review {
-  background: #fff;
+  background: linear-gradient(180deg, #ffffff, #f8fdff);
   border: var(--stroke);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -998,6 +1026,10 @@ a {
   position: relative;
   overflow: hidden;
   transform: rotate(0.6deg);
+}
+
+.reviews__grid .review:nth-child(2n) {
+  background: linear-gradient(180deg, #ffffff, #f2fbff);
 }
 
 .review::before {
