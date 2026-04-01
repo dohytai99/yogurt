@@ -608,6 +608,7 @@ a {
 .card__title {
   margin: 10px 0 8px;
   font-size: 22px;
+  min-height: 56px;
 }
 
 .card__meta {
@@ -630,6 +631,10 @@ a {
 }
 
 .card__meta span:first-child {
+  background: linear-gradient(180deg, #ffffff, #e9f8ff);
+}
+
+.card__meta span:last-child {
   background: linear-gradient(180deg, #ffe86a, #ffd43f);
   border-color: rgba(0, 0, 0, 0.28);
   font-size: 15px;
@@ -637,15 +642,12 @@ a {
   box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
 }
 
-.card__meta span:last-child {
-  background: linear-gradient(180deg, #ffffff, #e9f8ff);
-}
-
 .card__desc {
   margin: 0 0 14px;
   font-weight: 600;
   opacity: 0.9;
   line-height: 1.35;
+  min-height: 112px;
 }
 
 .card__stickers {
@@ -665,7 +667,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+  gap: 4px;
+  padding: 4px 8px;
   border-radius: 999px;
   border: 2px dashed rgba(0, 0, 0, 0.35);
   background: #ffffff;
@@ -976,6 +979,11 @@ a {
   padding: 10px;
   filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.16));
   transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+
+.flavor-card__imgwrap:hover .flavor-card__img {
+  transform: scale(1.05);
 }
 
 .story__line {
@@ -1445,6 +1453,10 @@ a {
   }
   .stats {
     grid-template-columns: 1fr;
+  }
+  .card__title,
+  .card__desc {
+    min-height: auto;
   }
 }
 
