@@ -289,13 +289,18 @@
               <button class="btn btn--primary" id="btnScrollForm" type="button">
                 Để lại review
               </button>
-              <button class="btn btn--ghost" id="btnLike" type="button">
-                Bấm Like
-              </button>
             </div>
-            <div class="wow-counter" id="likeCounter" aria-live="polite">
-              <span class="wow-counter__label">Đã có lượt like:</span>
-              <strong class="wow-counter__value" id="likeCountValue">0</strong>
+            <div class="reaction-bar" id="reactionBar" aria-label="Chọn reaction">
+              <button class="reaction-btn" type="button" data-reaction="like" aria-label="Like">👍</button>
+              <button class="reaction-btn" type="button" data-reaction="love" aria-label="Love">❤️</button>
+              <button class="reaction-btn" type="button" data-reaction="haha" aria-label="Haha">😆</button>
+              <button class="reaction-btn" type="button" data-reaction="wow" aria-label="Wow">😮</button>
+              <button class="reaction-btn" type="button" data-reaction="sad" aria-label="Sad">😢</button>
+              <button class="reaction-btn" type="button" data-reaction="angry" aria-label="Angry">😡</button>
+            </div>
+            <div class="reaction-summary" id="reactionSummary" aria-live="polite">
+              <span class="reaction-summary__total">Tổng reaction: <strong id="reactionTotal">0</strong></span>
+              <span id="reactionBreakdown">👍 0 · ❤️ 0 · 😆 0 · 😮 0 · 😢 0 · 😡 0</span>
             </div>
           </div>
 

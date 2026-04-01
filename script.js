@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const STORAGE_KEY = "cloudery_reviews_v1";
-const LIKE_STORAGE_KEY = "cloudery_like_count_v1";
+const REACTION_STORAGE_KEY = "cloudery_reaction_counts_v1";
 
 function qs(sel, root = document) {
   return root.querySelector(sel);
@@ -281,9 +281,10 @@ function setupTiltHover() {
 
 function setupConfetti() {
   const canvas = qs("#confetti");
-  const btn = qs("#btnLike");
-  const likeValue = qs("#likeCountValue");
-  if (!canvas || !btn) return;
+  const reactionBar = qs("#reactionBar");
+  const totalEl = qs("#reactionTotal");
+  const breakdownEl = qs("#reactionBreakdown");
+  if (!canvas || !reactionBar || !totalEl || !breakdownEl) return;
 
   const ctx = canvas.getContext("2d");
   const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
@@ -294,20 +295,44 @@ function setupConfetti() {
   let particles = [];
   let raf = 0;
   let endAt = 0;
+  const reactionKeys = ["like", "love", "haha", "wow", "sad", "angry"];
+  const reactionEmojis = {
+    like: "👍",
+    love: "❤️",
+    haha: "😆",
+    wow: "😮",
+    sad: "😢",
+    angry: "😡",
+  };
 
-  function readLikeCount() {
-    const raw = localStorage.getItem(LIKE_STORAGE_KEY);
-    const num = Number(raw);
-    return Number.isFinite(num) && num >= 0 ? Math.floor(num) : 0;
+  function normalizeCounts(raw) {
+    const counts = {};
+    for (const k of reactionKeys) {
+      const val = Number(raw?.[k] ?? 0);
+      counts[k] = Number.isFinite(val) && val >= 0 ? Math.floor(val) : 0;
+    }
+    return counts;
   }
 
-  function writeLikeCount(count) {
-    localStorage.setItem(LIKE_STORAGE_KEY, String(count));
+  function readReactionCounts() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(REACTION_STORAGE_KEY) || "{}");
+      return normalizeCounts(raw);
+    } catch {
+      return normalizeCounts({});
+    }
   }
 
-  function renderLikeCount(count) {
-    if (!likeValue) return;
-    likeValue.textContent = count.toLocaleString("vi-VN");
+  function writeReactionCounts(counts) {
+    localStorage.setItem(REACTION_STORAGE_KEY, JSON.stringify(counts));
+  }
+
+  function renderReactionCounts(counts) {
+    const total = reactionKeys.reduce((sum, k) => sum + counts[k], 0);
+    totalEl.textContent = total.toLocaleString("vi-VN");
+    breakdownEl.textContent = reactionKeys
+      .map((k) => `${reactionEmojis[k]} ${counts[k].toLocaleString("vi-VN")}`)
+      .join(" · ");
   }
 
   function resize() {
@@ -369,12 +394,27 @@ function setupConfetti() {
   const ro = new ResizeObserver(resize);
   ro.observe(canvas);
   resize();
-  renderLikeCount(readLikeCount());
+  renderReactionCounts(readReactionCounts());
 
-  btn.addEventListener("click", () => {
-    const nextCount = readLikeCount() + 1;
-    writeLikeCount(nextCount);
-    renderLikeCount(nextCount);
+  reactionBar.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-reaction]");
+    if (!btn) return;
+    const key = btn.getAttribute("data-reaction");
+    if (!reactionKeys.includes(key)) return;
+
+    const counts = readReactionCounts();
+    counts[key] += 1;
+    writeReactionCounts(counts);
+    renderReactionCounts(counts);
+
+    btn.animate(
+      [
+        { transform: "scale(1)" },
+        { transform: "scale(1.18)" },
+        { transform: "scale(1)" },
+      ],
+      { duration: 260, easing: "ease-out" },
+    );
 
     cancelAnimationFrame(raf);
     resize();
