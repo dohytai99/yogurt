@@ -2,6 +2,9 @@
 
 const STORAGE_KEY = "cloudery_reviews_v1";
 const REACTION_STORAGE_KEY = "cloudery_reaction_counts_v1";
+// Paste your deployed Google Apps Script Web App URL here.
+const GOOGLE_SCRIPT_WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbz_PmnOM6fDgPsx0EjqvB1mhZD7e9spILLSnWETwm4yenRxCmOFmonhu946YKRAyouO/exec";
 
 function qs(sel, root = document) {
   return root.querySelector(sel);
@@ -252,6 +255,50 @@ function setupForm(reviews) {
   });
 }
 
+function setupSurveyForm() {
+  const form = qs("#surveyForm");
+  const message = qs("#surveyMessage");
+  if (!form) return;
+
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const fd = new FormData(form);
+    const payload = {};
+    for (const [k, v] of fd.entries()) payload[k] = String(v);
+
+    localStorage.setItem("cloudery_survey_latest_v1", JSON.stringify(payload));
+    const now = new Date().toISOString();
+    payload.submittedAt = now;
+    payload.source = "cloudery-yogurt-landing";
+
+    if (message) message.textContent = "Dang gui feedback len Google...";
+
+    if (!GOOGLE_SCRIPT_WEB_APP_URL) {
+      if (message) {
+        message.textContent =
+          "Da luu local. Ban can them GOOGLE_SCRIPT_WEB_APP_URL trong script.js de day len Google.";
+      }
+      return;
+    }
+
+    try {
+      // no-cors lets browser post to Apps Script endpoint without CORS errors.
+      await fetch(GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (message) message.textContent = "Cam on ban! Feedback da duoc gui len Google.";
+    } catch {
+      if (message) {
+        message.textContent =
+          "Da luu local, nhung gui len Google bi loi mang. Thu lai sau nhe.";
+      }
+    }
+  });
+}
+
 function setupButtons() {
   qs("#btnScrollForm")?.addEventListener("click", () => {
     qs("#form")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -493,6 +540,7 @@ function bootstrap() {
   setupStoryLines();
   setupRatingHint();
   setupForm(reviews);
+  setupSurveyForm();
   setupButtons();
   setupTiltHover();
   setupConfetti();

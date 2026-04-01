@@ -1122,6 +1122,68 @@ a {
   margin-top: 12px;
 }
 
+.survey-form {
+  gap: 16px;
+}
+
+.survey-q {
+  background: linear-gradient(180deg, #ffffff, #f4fbff);
+  border: 2px solid rgba(0, 0, 0, 0.14);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.survey-options {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.survey-option {
+  display: block;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.survey-option:hover {
+  transform: translateY(-1px);
+}
+
+.survey-options input:checked + .survey-option {
+  background: #dffbe8;
+  border-color: #1f9f5f;
+  color: #0d6f41;
+  box-shadow: 0 0 0 2px rgba(31, 159, 95, 0.15) inset;
+}
+
+.survey-options input:checked + .survey-option::after {
+  content: "✓";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 1000;
+  background: #1f9f5f;
+  color: #fff;
+}
+
+.survey-message {
+  margin: 4px 0 0;
+  font-weight: 800;
+  color: #166b43;
+}
+
 .field__label {
   display: block;
   margin-bottom: 8px;

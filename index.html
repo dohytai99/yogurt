@@ -408,56 +408,36 @@
       <!-- FORM -->
       <section id="form" class="section section--form" aria-label="Feedback form">
         <div class="container form-wrap reveal">
-          <h2 class="section__title">Bạn chấm sao giúp tụi mình nhé</h2>
-          <form id="reviewForm" class="form">
-            <label class="field">
-              <span class="field__label">Tên bạn</span>
-              <input
-                class="input"
-                name="name"
-                type="text"
-                placeholder="Ví dụ: Mây Mây"
-                required
-                maxlength="40"
-                autocomplete="name"
-              />
-            </label>
-
-            <div class="field">
-              <span class="field__label">Chấm sao</span>
-              <div class="stars" role="radiogroup" aria-label="Star rating">
-                <input class="sr-only" type="radio" name="rating" value="5" id="r5" checked />
-                <label class="star" for="r5" title="5 sao">★</label>
-                <input class="sr-only" type="radio" name="rating" value="4" id="r4" />
-                <label class="star" for="r4" title="4 sao">★</label>
-                <input class="sr-only" type="radio" name="rating" value="3" id="r3" />
-                <label class="star" for="r3" title="3 sao">★</label>
-                <input class="sr-only" type="radio" name="rating" value="2" id="r2" />
-                <label class="star" for="r2" title="2 sao">★</label>
-                <input class="sr-only" type="radio" name="rating" value="1" id="r1" />
-                <label class="star" for="r1" title="1 sao">★</label>
+          <h2 class="section__title">Khảo sát nhanh khách hàng</h2>
+          <form id="surveyForm" class="form survey-form">
+            <div class="survey-q">
+              <p class="field__label">1. Bạn thuộc nhóm tuổi nào?</p>
+              <div class="survey-options">
+                <input class="sr-only" type="radio" id="q1a" name="q1_age" value="Dưới 18" required />
+                <label class="survey-option" for="q1a">Dưới 18</label>
+                <input class="sr-only" type="radio" id="q1b" name="q1_age" value="18 – 22" />
+                <label class="survey-option" for="q1b">18 – 22</label>
+                <input class="sr-only" type="radio" id="q1c" name="q1_age" value="23 – 30" />
+                <label class="survey-option" for="q1c">23 – 30</label>
+                <input class="sr-only" type="radio" id="q1d" name="q1_age" value="Trên 30" />
+                <label class="survey-option" for="q1d">Trên 30</label>
               </div>
-              <div class="stars__hint" id="ratingHint">5 sao nha!</div>
             </div>
 
-            <label class="field">
-              <span class="field__label">Bình luận</span>
-              <textarea
-                class="textarea"
-                name="comment"
-                rows="4"
-                placeholder="Bạn thấy mịn không? vị thế nào? mới lạ không?"
-                required
-                maxlength="280"
-              ></textarea>
-            </label>
+            <div class="survey-q"><p class="field__label">2. Bạn thường ăn sữa chua với tần suất như thế nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q2a" name="q2_freq" value="Mỗi ngày" required /><label class="survey-option" for="q2a">Mỗi ngày</label><input class="sr-only" type="radio" id="q2b" name="q2_freq" value="2 – 3 lần/tuần" /><label class="survey-option" for="q2b">2 – 3 lần/tuần</label><input class="sr-only" type="radio" id="q2c" name="q2_freq" value="1 lần/tuần" /><label class="survey-option" for="q2c">1 lần/tuần</label><input class="sr-only" type="radio" id="q2d" name="q2_freq" value="Hiếm khi" /><label class="survey-option" for="q2d">Hiếm khi</label></div></div>
+            <div class="survey-q"><p class="field__label">3. Khi lựa chọn sữa chua, bạn quan tâm nhất đến yếu tố nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q3a" name="q3_focus" value="Hương vị" required /><label class="survey-option" for="q3a">Hương vị</label><input class="sr-only" type="radio" id="q3b" name="q3_focus" value="Giá cả" /><label class="survey-option" for="q3b">Giá cả</label><input class="sr-only" type="radio" id="q3c" name="q3_focus" value="Thành phần dinh dưỡng" /><label class="survey-option" for="q3c">Thành phần dinh dưỡng</label><input class="sr-only" type="radio" id="q3d" name="q3_focus" value="Thương hiệu" /><label class="survey-option" for="q3d">Thương hiệu</label><input class="sr-only" type="radio" id="q3e" name="q3_focus" value="Bao bì sản phẩm" /><label class="survey-option" for="q3e">Bao bì sản phẩm</label></div></div>
+            <div class="survey-q"><p class="field__label">4. Bạn có sẵn sàng thử một loại sữa chua mới có thành phần trứng gà lên men không?</p><div class="survey-options"><input class="sr-only" type="radio" id="q4a" name="q4_try" value="Rất sẵn sàng" required /><label class="survey-option" for="q4a">Rất sẵn sàng</label><input class="sr-only" type="radio" id="q4b" name="q4_try" value="Có thể thử" /><label class="survey-option" for="q4b">Có thể thử</label><input class="sr-only" type="radio" id="q4c" name="q4_try" value="Phân vân" /><label class="survey-option" for="q4c">Phân vân</label><input class="sr-only" type="radio" id="q4d" name="q4_try" value="Không muốn thử" /><label class="survey-option" for="q4d">Không muốn thử</label></div></div>
+            <div class="survey-q"><p class="field__label">5. Sau khi thử sản phẩm Cloudery Yogurt, bạn đánh giá kết cấu sản phẩm như thế nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q5a" name="q5_texture" value="Rất mềm mịn" required /><label class="survey-option" for="q5a">Rất mềm mịn</label><input class="sr-only" type="radio" id="q5b" name="q5_texture" value="Mềm mịn" /><label class="survey-option" for="q5b">Mềm mịn</label><input class="sr-only" type="radio" id="q5c" name="q5_texture" value="Bình thường" /><label class="survey-option" for="q5c">Bình thường</label><input class="sr-only" type="radio" id="q5d" name="q5_texture" value="Chưa hài lòng" /><label class="survey-option" for="q5d">Chưa hài lòng</label></div></div>
+            <div class="survey-q"><p class="field__label">6. Bạn đánh giá hương vị của sản phẩm như thế nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q6a" name="q6_taste" value="Rất ngon" required /><label class="survey-option" for="q6a">Rất ngon</label><input class="sr-only" type="radio" id="q6b" name="q6_taste" value="Khá ngon" /><label class="survey-option" for="q6b">Khá ngon</label><input class="sr-only" type="radio" id="q6c" name="q6_taste" value="Bình thường" /><label class="survey-option" for="q6c">Bình thường</label><input class="sr-only" type="radio" id="q6d" name="q6_taste" value="Chưa phù hợp khẩu vị" /><label class="survey-option" for="q6d">Chưa phù hợp khẩu vị</label></div></div>
+            <div class="survey-q"><p class="field__label">7. Theo bạn, độ ngọt của sản phẩm hiện tại như thế nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q7a" name="q7_sweetness" value="Hơi ngọt" required /><label class="survey-option" for="q7a">Hơi ngọt</label><input class="sr-only" type="radio" id="q7b" name="q7_sweetness" value="Vừa phải" /><label class="survey-option" for="q7b">Vừa phải</label><input class="sr-only" type="radio" id="q7c" name="q7_sweetness" value="Hơi nhạt" /><label class="survey-option" for="q7c">Hơi nhạt</label><input class="sr-only" type="radio" id="q7d" name="q7_sweetness" value="Cần điều chỉnh" /><label class="survey-option" for="q7d">Cần điều chỉnh</label></div></div>
+            <div class="survey-q"><p class="field__label">8. Bạn thích hương vị nào nhất trong các loại sau?</p><div class="survey-options"><input class="sr-only" type="radio" id="q8a" name="q8_favorite" value="Sữa chua trứng gà nguyên bản" required /><label class="survey-option" for="q8a">Sữa chua trứng gà nguyên bản</label><input class="sr-only" type="radio" id="q8b" name="q8_favorite" value="Sữa chua lá dứa" /><label class="survey-option" for="q8b">Sữa chua lá dứa</label><input class="sr-only" type="radio" id="q8c" name="q8_favorite" value="Sữa chua trứng gà mix trái cây" /><label class="survey-option" for="q8c">Sữa chua trứng gà mix trái cây</label></div></div>
+            <div class="survey-q"><p class="field__label">9. Bạn đánh giá thiết kế bao bì sản phẩm như thế nào?</p><div class="survey-options"><input class="sr-only" type="radio" id="q9a" name="q9_packaging" value="Rất đẹp và thu hút" required /><label class="survey-option" for="q9a">Rất đẹp và thu hút</label><input class="sr-only" type="radio" id="q9b" name="q9_packaging" value="Khá đẹp" /><label class="survey-option" for="q9b">Khá đẹp</label><input class="sr-only" type="radio" id="q9c" name="q9_packaging" value="Bình thường" /><label class="survey-option" for="q9c">Bình thường</label><input class="sr-only" type="radio" id="q9d" name="q9_packaging" value="Cần cải thiện" /><label class="survey-option" for="q9d">Cần cải thiện</label></div></div>
+            <div class="survey-q"><p class="field__label">10. Bạn có sẵn sàng mua sản phẩm này nếu được bán trên thị trường với giá khoảng 32.000 VNĐ / hũ không?</p><div class="survey-options"><input class="sr-only" type="radio" id="q10a" name="q10_buy" value="Rất sẵn sàng" required /><label class="survey-option" for="q10a">Rất sẵn sàng</label><input class="sr-only" type="radio" id="q10b" name="q10_buy" value="Có thể mua" /><label class="survey-option" for="q10b">Có thể mua</label><input class="sr-only" type="radio" id="q10c" name="q10_buy" value="Cân nhắc" /><label class="survey-option" for="q10c">Cân nhắc</label><input class="sr-only" type="radio" id="q10d" name="q10_buy" value="Không" /><label class="survey-option" for="q10d">Không</label></div></div>
 
             <div class="form__actions">
-              <button class="btn btn--primary" type="submit">Gửi review</button>
-              <button class="btn btn--ghost" type="button" id="btnClearReviews">
-                Xoá reviews đã lưu
-              </button>
+              <button class="btn btn--primary" type="submit">Gửi khảo sát</button>
             </div>
+            <p id="surveyMessage" class="survey-message" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -474,7 +454,7 @@
         </div>
         <div class="footer__links">
           <a href="#main">Lên đầu trang</a>
-          <a href="#form">Gửi review</a>
+          <a href="#form">Gửi khảo sát</a>
         </div>
       </div>
     </footer>
